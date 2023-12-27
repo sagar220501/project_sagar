@@ -1,0 +1,26 @@
+.custom-card {
+    height: 450px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-container {
+    overflow: hidden;
+    position: relative;
+    height: 280px; /* Same as the image height */
+  }
+  
+  .image-fit {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .image-container:hover .image-fit {
+    transform: scale(1.1);
+  }
+  

@@ -1,0 +1,56 @@
+.text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 1; /* Ensure text appears above the blurred background */
+  filter: "blur(0px)";
+}
+
+.text-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.animated-text,
+.animated-subtext {
+  opacity: 0;
+  animation: slideUp 2s forwards, fadeIn 2s forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animated-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.animated-link {
+  opacity: 0;
+  animation: fadeIn 5s forwards;
+  animation-delay: 1s;
+}
+
