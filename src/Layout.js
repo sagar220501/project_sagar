@@ -1,14 +1,14 @@
 import { Link, Outlet } from "react-router-dom";
-import "./Layout.css"; // Import a CSS file for styling
+import "./Layout.css"; 
 
 function Layout() {
   const backgroundStyle = {
-    backgroundImage: "url('/images/club.png')", // Replace with your image URL
+    backgroundImage: "url('/images/club.png')", 
     backgroundSize: "cover",
     backgroundPosition: "center",
     position: "relative",
     height: "100vh",
-    filter: "blur(3px)" // Adjust the blur intensity as needed
+    filter: "blur(3px)" 
   };
 
   const textContainerStyle = {
@@ -23,12 +23,12 @@ function Layout() {
 
   const buttonStyle = {
     background: "transparent",
-    border: "2px solid pink", // Adjust border properties to match the desired color
-    color: "pink", // Text color for the buttons
+    border: "2px solid pink",
+    color: "pink", 
     padding: "10px 20px",
     margin: "10px",
-    textDecoration: "none", // Remove underline from links
-    transition: "background-color 0.3s ease", // Smooth transition on hover
+    textDecoration: "none", 
+    transition: "background-color 0.3s ease", 
   };
 
   

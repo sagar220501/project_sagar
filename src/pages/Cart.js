@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import CartItem from '../components/CartItem.js';
-import { UseCartContext } from '../contexts/cartContext.js';
+import { useCartContext } from '../contexts/cartContext.js';
 import './Cart.css'; // Import a CSS file for custom styles (create Cart.css)
 
 const Cart = () => {
-  const { cart, total_price } = UseCartContext();
+  const { cart, total_price } = useCartContext();
 
   return (
     <div className='container mt-5'>
@@ -21,7 +21,8 @@ const Cart = () => {
 
           <div className='row mt-5'>
             <div className='d-flex justify-content-between'>
-              <NavLink to='/'>
+              {/* Update the NavLink to navigate to the home page */}
+              <NavLink to='/home'>
                 <input className='btn btn-info' type='button' value={"Continue Shopping"} />
               </NavLink>
               <NavLink to='https://www.phonepe.com/' target='_blank' rel='noopener noreferrer'>
@@ -33,6 +34,7 @@ const Cart = () => {
       ) : (
         <>
           <h3 className='text-center'>No Items in the Cart</h3>
+          {/* Update the NavLink to navigate to the home page */}
           <NavLink to='/' className='d-flex justify-content-center'>
             <input className='btn btn-info mt-4' type='button' value={"Continue Shopping"} />
           </NavLink>

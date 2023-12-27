@@ -3,19 +3,39 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
 const cookieParser = require("cookie-parser");
-
+const WebSocket = require('ws');
 const app = express();
 
-app.listen(4000, (err) => {
+// WebSocket server setup
+const wss = new WebSocket.Server({ noServer: true, path: '/ws' });
+
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(message) {
+    console.log('received: %s', message);
+    ws.send('Message received by server: ' + message); // Sending a response back to the client
+  });
+
+  ws.send('connected');
+});
+
+// Create HTTP server using Express app
+const server = app.listen(4000, (err) => {
   if (err) {
-    console.log(err);
+    console.error('Error starting server:', err);
   } else {
     console.log("Server Started Successfully.");
   }
 });
 
+// Upgrade HTTP server to handle WebSocket requests
+server.on('upgrade', (request, socket, head) => {
+  wss.handleUpgrade(request, socket, head, (ws) => {
+    wss.emit('connection', ws, request);
+  });
+});
+
 mongoose
-  .connect("mongodb://localhost:27017/datab", {
+  .connect("mongodb://127.0.0.1:27017/datab", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

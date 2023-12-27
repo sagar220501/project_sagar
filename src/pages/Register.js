@@ -35,7 +35,7 @@ function Register() {
           if (email) generateError(email);
           else if (password) generateError(password);
         } else {
-          navigate("/");
+          navigate("/login");
         }
       }
     } catch (ex) {

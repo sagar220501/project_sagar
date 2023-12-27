@@ -12,7 +12,7 @@ function Login() {
     if (cookies.jwt) {
       navigate("/");
     }
-  }, [cookies, navigate]);
+  }, [cookies.jwt, navigate]);
 
   const [values, setValues] = useState({ email: "", password: "" });
   const generateError = (error) =>
@@ -35,7 +35,7 @@ function Login() {
           if (email) generateError(email);
           else if (password) generateError(password);
         } else {
-          navigate("/");
+          navigate("/home");
         }
       }
     } catch (ex) {

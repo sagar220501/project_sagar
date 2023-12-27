@@ -1,7 +1,7 @@
-import { UseCartContext } from '../contexts/cartContext.js';
+import { useCartContext } from '../contexts/cartContext.js';
 
 let CartItem = (props) => {
-  const { removeFromCart } = UseCartContext();
+  const { removeFromCart } = useCartContext();
 
   const handleRemoveFromCart = () => {
     removeFromCart(props.cartedItem.id);

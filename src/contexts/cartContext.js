@@ -28,8 +28,8 @@ let CartProvider = ({children}) => {
         </CartContext.Provider>);
     }
 
-const UseCartContext = () => {
+const useCartContext = () => {
     return useContext(CartContext)
   }
 
-export { CartProvider, UseCartContext}
+export { CartProvider, useCartContext}
