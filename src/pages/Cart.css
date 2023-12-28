@@ -1,24 +1,68 @@
+/* Cart.css */
+
+/* Common styles */
+.btn {
+  transition: transform 0.3s, background-color 0.3s;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Cart specific styles */
+.cart-container {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .total-section {
-    animation: glowing 2s infinite;
-  }
-  
-  .btn {
-    transition: transform 0.3s;
-  }
-  
-  .btn:hover {
-    transform: scale(1.1);
-  }
-  
-  @keyframes glowing {
-    0% {
-      box-shadow: 0 0 10px #42f5ad;
-    }
-    50% {
-      box-shadow: 0 0 20px #42f5ad;
-    }
-    100% {
-      box-shadow: 0 0 10px #42f5ad;
-    }
-  }
-  
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.total-amount {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.price {
+  color: #4caf50;
+}
+
+.button-section {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-continue-shopping {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.btn-proceed-payment {
+  background-color: #4caf50;
+  color: #fff;
+}

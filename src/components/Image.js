@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import './Image.css'; // Import a CSS file for custom styles (create Image.css)
+import './Image.css';
 
 function Image(props) {
   return (
