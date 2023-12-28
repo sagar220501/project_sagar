@@ -54,3 +54,7 @@
   animation-delay: 1s;
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}

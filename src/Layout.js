@@ -38,7 +38,7 @@ function Layout() {
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             <img src="/images/ecom.jpg" alt="logo" style={{ width: "60px", borderRadius: "40px" }} />
-            <span className="ms-2">Online Shopping</span>
+            <span className="ms-2" style={{color:"white"}}>Online Shopping</span>
           </Link>
           <button
             className="navbar-toggler"

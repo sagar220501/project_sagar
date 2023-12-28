@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useCartContext } from "../contexts/cartContext";
 
 let AddToCart = (props) => {
-    let { addToCart } = useCartContext(); // Corrected case sensitivity
+    let { addToCart } = useCartContext(); 
     
     return (
         <NavLink to='/cart/' onClick={() => addToCart(props.product)}>

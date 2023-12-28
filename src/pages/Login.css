@@ -1,44 +1,96 @@
-/* Login.css */
+
 .login-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffebf3; 
+}
+
+
+.login-box {
+  max-width: 350px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #fff; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .login-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .login-container form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .login-container label {
-    margin-bottom: 5px;
-  }
-  
-  .login-container input[type="email"],
-  .login-container input[type="password"],
-  .login-container button {
-    margin-bottom: 15px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  .login-container button {
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .login-container button:hover {
-    background-color: #0056b3;
-  }
-  
+}
+
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #e91e63; 
+}
+
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #e91e63; 
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e91e63; 
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ff69b4; 
+}
+
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff; 
+  background-color: #e91e63; 
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff1493; 
+}
+
+
+span {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #666;
+}
+
+span a {
+  color: #e91e63; 
+  text-decoration: none;
+}
+
+span a:hover {
+  text-decoration: underline;
+}

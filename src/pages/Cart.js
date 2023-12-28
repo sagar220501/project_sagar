@@ -1,4 +1,4 @@
-// Cart.js
+
 
 import { NavLink } from 'react-router-dom';
 import CartItem from '../components/CartItem.js';
