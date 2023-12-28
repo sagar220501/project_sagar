@@ -1,24 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import { useCookies } from "react-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "./Register.css";
-function Register() {
-  const [cookies] = useCookies(["cookie-name"]);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (cookies.jwt) {
-      navigate("/");
-    }
-  }, [cookies, navigate]);
 
+function Register() {
+  const navigate = useNavigate();
   const [values, setValues] = useState({ email: "", password: "" });
+
   const generateError = (error) =>
     toast.error(error, {
       position: "bottom-right",
     });
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -29,19 +24,22 @@ function Register() {
         },
         { withCredentials: true }
       );
-      if (data) {
+      if (data && !data.errors) {
+        // Successful registration, navigate to the login page
+        navigate("/login");
+      } else {
+        // Handle registration errors
         if (data.errors) {
           const { email, password } = data.errors;
           if (email) generateError(email);
           else if (password) generateError(password);
-        } else {
-          navigate("/login");
         }
       }
     } catch (ex) {
       console.log(ex);
     }
   };
+
   return (
     <div className="register-container">
       <h2>Register Account</h2>
