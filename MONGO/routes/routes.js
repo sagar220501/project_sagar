@@ -10,76 +10,63 @@ router.use(bodyParser.json());
 
 
 router.post('/post', async (req, res) => {
-    const data = new Model({
-        name: req.body.name,
-        age: req.body.age
-    })
-
+    const { firstName, lastName, age, gender, address } = req.body;
+  
     try {
-        const dataToSave = await data.save();
-        res.status(200).json(dataToSave)
+      const newData = new Model({
+        firstName,
+        lastName,
+        age,
+        gender,
+        address,
+      });
+  
+      const savedData = await newData.save();
+      res.status(200).json(savedData);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
     }
-    catch (error) {
-        res.status(400).json({ message: error.message })
-    }
-})
-
-
-
-router.get('/getAll', async (req, res) => {
+  });
+  
+  router.get('/getAll', async (req, res) => {
     try {
-        const data = await Model.find();
-        res.json(data)
+      const data = await Model.find();
+      res.json(data);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
     }
-    catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-})
-
-
-
-
-router.get('/getOne/:id', async (req, res) => {
+  });
+  
+  router.get('/getOne/:id', async (req, res) => {
     try {
-        const data = await Model.findById(req.params.id);
-        res.json(data)
+      const data = await Model.findById(req.params.id);
+      res.json(data);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
     }
-    catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-})
-
-
-
-
-router.patch('/update/:id', async (req, res) => {
+  });
+  
+  router.patch('/update/:id', async (req, res) => {
     try {
-        const id = req.params.id;
-        const updatedData = req.body;
-        const options = { new: true };
-
-        const result = await Model.findByIdAndUpdate(
-            id, updatedData, options
-        )
-
-        res.send(result)
+      const id = req.params.id;
+      const updatedData = req.body;
+      const options = { new: true };
+  
+      const result = await Model.findByIdAndUpdate(id, updatedData, options);
+      res.send(result);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
     }
-    catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-})
-
-
-router.delete('/delete/:id', async (req, res) => {
+  });
+  
+  router.delete('/delete/:id', async (req, res) => {
     try {
-        const id = req.params.id;
-        const data = await Model.findByIdAndDelete(id)
-        res.send(`Document with ${data.name} has been deleted..`)
+      const id = req.params.id;
+      const data = await Model.findByIdAndDelete(id);
+      res.send(`Document with ${data.name} has been deleted..`);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
     }
-    catch (error) {
-        res.status(400).json({ message: error.message })
-    }
-})
-
-
-module.exports = router;
+  });
+  
+  module.exports = router;

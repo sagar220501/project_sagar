@@ -8,8 +8,11 @@ mongoose.connect(mongoString, { useNewUrlParser: true, useUnifiedTopology: true 
   .catch((error) => console.error('Error connecting to database:', error));
 
 const dataSchema = new mongoose.Schema({
-    name: { required: true, type: String },
-    age: { required: true, type: Number }
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+    age: { required: true, type: Number },
+    gender: { type: String },
+  address: { type: String }
 });
 
 module.exports = mongoose.model('datacollection', dataSchema);

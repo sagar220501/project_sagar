@@ -1,6 +1,6 @@
 
 
-import { NavLink } from 'react-router-dom';
+import { NavLink ,Link } from 'react-router-dom';
 import CartItem from '../components/CartItem.js';
 import { useCartContext } from '../contexts/cartContext.js';
 import './Cart.css';
@@ -23,9 +23,9 @@ const Cart = () => {
               <NavLink to='/home'>
                 <button className='btn btn-continue-shopping'>Continue Shopping</button>
               </NavLink>
-              <a href='https://www.phonepe.com/' target='_blank' rel='noopener noreferrer'>
-                <button className='btn btn-proceed-payment'>Proceed to Payment</button>
-              </a>
+              <Link to='/address'>
+                <button className='btn btn-proceed-payment'>Checkout</button>
+              </Link>
             </div>
           </div>
         </div>
